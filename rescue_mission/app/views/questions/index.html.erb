@@ -1,0 +1,17 @@
+<h1>Questions</h1>
+
+<table>
+  <% unless @questions.empty? %>
+    <tbody>
+    <tr>
+    <% @questions.each do |question| %>
+      <td><%= link_to question.title, question %></td>
+      <td><%= link_to 'Edit', edit_question_path(question) %></td>
+      <td><%= link_to 'Delete', question, method: :delete, data: { confirm: 'Send me to the abyss'} %></td>
+    </tr>
+  </tbody>
+    <% end %>
+  <% end %>
+</table>
+
+<button><%= link_to 'Create Question', new_question_path %></button>
